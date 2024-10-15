@@ -1,14 +1,14 @@
 package campaignTools.datas;
 
-public class Statistics
+public class Statistics // Defines the statistics class through different attributes that help keeping tracks of statistics
 {
 
     /** Attributes of Statistics */
 
-    int click;
-    int researched;
-    int impression;
-    int conversion;
+    protected int click;
+    protected int researched;
+    protected int impression;
+    protected int conversion;
 
     /** Methods of Statistics */
 

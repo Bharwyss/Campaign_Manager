@@ -1,6 +1,6 @@
-package campaignTools.Advertisements;
+package campaignTools.advertisements;
 
-public class ImageAdvertisement extends Advertisement
+public class ImageAdvertisement extends Advertisement // Children of Advertisement that deals with the image version
 {
     /** Attributes of an Advertisement */
 

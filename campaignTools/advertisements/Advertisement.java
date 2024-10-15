@@ -1,8 +1,8 @@
-package campaignTools.Advertisements;
+package campaignTools.advertisements;
 
 import campaignTools.datas.Statistics;
 
-public abstract class Advertisement
+public abstract class Advertisement // Define the blueprint of an advertisement. It has 3 children that inherit its characteristics
 {
     /** Attributes of an Advertisement */
 

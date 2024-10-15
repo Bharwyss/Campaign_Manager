@@ -1,6 +1,6 @@
-package campaignTools.Advertisements;
+package campaignTools.advertisements;
 
-public class VideoAdvertisement extends Advertisement
+public class VideoAdvertisement extends Advertisement // Children of Advertisement that deals with the video version
 {
     /** Attributes of an Advertisement */
 
