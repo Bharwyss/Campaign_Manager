@@ -11,12 +11,23 @@ public abstract class Advertisement // Define the blueprint of an advertisement.
     double baseCost;
     Statistics statistics;
 
-    /** Method of an Advertisement */
+    /** Methods to set or get attributes of an Advertisement */
 
-    public void getStatistics()
-    {
+    // name Attribute
+    public void setName(String name) {this.name = name;}
+    public String getName() {return this.name;}
 
-    }
+    // type Attribute
+    public void setType(String type) {this.type = type;}
+    public String getType() {return this.type;}
+
+    // baseCost attribute
+    public void setBaseCost(double baseCost) {this.baseCost = baseCost;}
+    public double getBaseCost() {return this.baseCost;}
+
+    // statistics Attribute
+    public void setStatistics(Statistics stats) {this.statistics = stats;}
+    public Statistics getStatistics() {return this.statistics;}
 
     public void display()
     {

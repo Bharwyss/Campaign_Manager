@@ -8,11 +8,6 @@ public class TextAdvertisement extends Advertisement // Children of Advertisemen
 
 
     @Override
-    public void getStatistics() {
-        super.getStatistics();
-    }
-
-    @Override
     public void display() {
         super.display();
     }

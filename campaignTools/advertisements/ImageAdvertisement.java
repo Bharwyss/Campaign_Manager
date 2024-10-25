@@ -9,10 +9,6 @@ public class ImageAdvertisement extends Advertisement // Children of Advertiseme
 
     /** Method of an Advertisement */
 
-    @Override
-    public void getStatistics() {
-        super.getStatistics();
-    }
 
     @Override
     public void display() {

@@ -1,5 +1,6 @@
 package campaignTools.advertisingCampaigns;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdvertisingCampaignManager
@@ -7,7 +8,7 @@ public class AdvertisingCampaignManager
 {
     /** Attributes of an Advertising Campaign Manager */
 
-    protected List<AdvertisingCampaign> advertisingCampaignList;
+    protected List<AdvertisingCampaign> advertisingCampaignList = new ArrayList<>();
 
     /** Methods of an Advertising Campaign Manager */
 
@@ -26,40 +27,46 @@ public class AdvertisingCampaignManager
         advertisingCampaignList.remove(index);
     }
 
-    public void showAllCampaigns() // Display all current campaigns in the list
+    public void showAllCampaigns() // Display all current campaigns in the list by name and date
     {
         for (AdvertisingCampaign advertisingCampaigns : advertisingCampaignList)
         {
-            System.out.println(advertisingCampaigns);
+            System.out.println(advertisingCampaigns.name + " " + advertisingCampaigns.startingDate);
         }
     }
 
-    public void setOrderCampaignFromMostOlderDate() // Set a chronological order in the list from oldest to newest
+    public void setOrderCampaignFromMostOldestDate() // Set a chronological order in the list from oldest to newest
     {
+        System.out.println("Test, changing list order from oldest to most recent");
         for (int i = 1; i < advertisingCampaignList.size(); i++)
         {
-            // If the current index observed is older in date than the one before, put it to the first index
+            // Create a new variable that refer to the current index of the list
             AdvertisingCampaign currentCampaign = advertisingCampaignList.get(i);
-            LocalDateTime date = currentCampaign.startingDate;
+            // Create a new variable that refers to the attribute startingDate of the current campaign
+            LocalDateTime currentCampaignDate = currentCampaign.startingDate;
+            // Create variable j that represents the precedent index of the list
             int j = i - 1;
-            while (j >= 0 && advertisingCampaignList.get(j).startingDate.isAfter(date))
+            // While j is greater or equal to zero and the date of the previous campaign is more recent than currentCampaignDate
+            while (j >= 0 && advertisingCampaignList.get(j).startingDate.isAfter(currentCampaignDate))
             {
+                // Set the previous campaign on index j + 1
                 advertisingCampaignList.set(j+1, advertisingCampaignList.get(j));
                 j--;
             }
             // Insert the current campaign at the correct position
-            advertisingCampaignList.set(j + 1, currentCampaign);
+            advertisingCampaignList.set(j+1, currentCampaign);
         }
     }
 
     public void setOrderCampaignFromMostRecentDate() // Set a chronological order in the list from newest to oldest
     {
+        System.out.println("Test, changing list order from most recent to oldest");
         for (int i = 1; i < advertisingCampaignList.size(); i++)
         {
-            // If the current index observed is older in date than the one before, put it to the first index
             AdvertisingCampaign currentCampaign = advertisingCampaignList.get(i);
             LocalDateTime date = currentCampaign.startingDate;
             int j = i - 1;
+            // While j is greater or equal to zero and the date of the previous campaign is older than currentCampaignDate
             while (j >= 0 && advertisingCampaignList.get(j).startingDate.isBefore(date))
             {
                 advertisingCampaignList.set(j+1, advertisingCampaignList.get(j));
@@ -68,10 +75,5 @@ public class AdvertisingCampaignManager
             // Insert the current campaign at the correct position
             advertisingCampaignList.set(j + 1, currentCampaign);
         }
-    }
-
-    public static void main(String[] args)
-    {
-        System.out.println("It's working");
     }
 }
