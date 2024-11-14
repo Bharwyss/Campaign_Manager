@@ -1,16 +1,42 @@
 package campaignTools.advertisingCampaigns;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 
-public class AdvertisingCampaignManager
-        // Class that deals with multiple campaigns. You can add one, remove one, show them, and set them into order
+
+public class AdvertisingCampaignManager extends ListManager<AdvertisingCampaign>
+        // Class that deals with advertising campaigns
+
+        /** Methods of an Advertising Campaign Manager */
 {
+    @Override
+    public void showAllElements() // Display all current campaigns in the list by name and date
+    {
+        for (int i = 0; i < elementsList.size(); i++)
+        {
+            System.out.println(elementsList.get(i).getName());
+            System.out.println(elementsList.get(i).getStartingDate());
+        }
+    }
+
+    @Override
+    public void removeByName(String elementName) // Remove an element from the list by its name
+    {
+        Iterator<AdvertisingCampaign> iterator = elementsList.iterator();
+        while (iterator.hasNext()) {
+            AdvertisingCampaign element = iterator.next();
+            if (element.getName().equals(elementName)) {
+                iterator.remove(); // This safely removes the element from the list
+                System.out.println("Removed: " + element.getName());
+                return; // Exit after the first match
+            }
+        }
+        System.out.println("No element found with name: " + elementName);
+    }
+
+    // Method to set order by startingDate
     /** Attributes of an Advertising Campaign Manager */
 
-    protected List<AdvertisingCampaign> advertisingCampaignList = new ArrayList<>();
-
     /** Methods of an Advertising Campaign Manager */
+    /**
 
     public void addCampaign(AdvertisingCampaign addCampaign) // Add a defined campaign to the list
     {
@@ -58,7 +84,7 @@ public class AdvertisingCampaignManager
         }
     }
 
-    public void setOrderCampaignFromMostRecentDate() // Set a chronological order in the list from newest to oldest
+     public void setOrderCampaignFromMostRecentDate() // Set a chronological order in the list from newest to oldest
     {
         System.out.println("Test, changing list order from most recent to oldest");
         for (int i = 1; i < advertisingCampaignList.size(); i++)
@@ -75,5 +101,5 @@ public class AdvertisingCampaignManager
             // Insert the current campaign at the correct position
             advertisingCampaignList.set(j + 1, currentCampaign);
         }
-    }
+    } */
 }

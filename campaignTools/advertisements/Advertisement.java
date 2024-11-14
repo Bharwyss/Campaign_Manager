@@ -2,11 +2,11 @@ package campaignTools.advertisements;
 
 import campaignTools.datas.Statistics;
 
-public abstract class Advertisement // Define the blueprint of an advertisement. It has 3 children that inherit its characteristics
+public class Advertisement // Define the blueprint of an advertisement. It has 3 children that inherit its characteristics
 {
     /** Attributes of an Advertisement */
 
-    String name;
+    String nameAd;
     String type;
     double baseCost;
     Statistics statistics;
@@ -14,8 +14,8 @@ public abstract class Advertisement // Define the blueprint of an advertisement.
     /** Methods to set or get attributes of an Advertisement */
 
     // name Attribute
-    public void setName(String name) {this.name = name;}
-    public String getName() {return this.name;}
+    public void setNameAd(String nameAd) {this.nameAd = nameAd;}
+    public String getNameAd() {return this.nameAd;}
 
     // type Attribute
     public void setType(String type) {this.type = type;}
