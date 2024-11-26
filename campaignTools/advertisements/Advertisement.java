@@ -4,6 +4,16 @@ import campaignTools.datas.Statistics;
 
 public class Advertisement // Define the blueprint of an advertisement. It has 3 children that inherit its characteristics
 {
+    // Constructor //
+    public Advertisement(String nameAd)
+    {
+        this.nameAd = nameAd;
+    }
+
+    public Advertisement()
+    {
+
+    }
     /** Attributes of an Advertisement */
 
     String nameAd;

@@ -3,9 +3,7 @@ package campaignTools.advertisingCampaigns;
 import campaignTools.advertisements.Advertisement;
 import campaignTools.datas.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class AdvertisingCampaign extends ListManager<Advertisement>// Class that defines what an Advertising Campaign is.
 {
@@ -17,7 +15,6 @@ public class AdvertisingCampaign extends ListManager<Advertisement>// Class that
     protected double budget;
     protected String platformTarget;
     protected PublicAudience publicTarget;
-    protected List<Advertisement> advertisementList = new ArrayList<>();
 
     /** Methods to set or get attributes or an Advertising Campaign */
 
@@ -55,6 +52,7 @@ public class AdvertisingCampaign extends ListManager<Advertisement>// Class that
         }
     }
 
+    @Override
     public void removeByName(String elementName) // Remove an element from the list by its name
     {
         Iterator<Advertisement> iterator = elementsList.iterator();
