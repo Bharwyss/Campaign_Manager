@@ -1,6 +1,7 @@
 package campaignGUI.mainStage;
 
 import campaignGUI.views.LoginView;
+import campaignGUI.views.ViewHolder;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -22,8 +23,7 @@ public class CampaignMainStage extends Application
     public void start(Stage stage) throws Exception
     {
         primaryStage = stage;
-        Scene loginViewScene = new Scene(new LoginView(20));
-        primaryStage.setScene(loginViewScene);
+        primaryStage.setScene(ViewHolder.getLoginScene());
         primaryStage.setTitle(WINDOW_TITLE);
         primaryStage.setWidth(WINDOW_WIDTH);
         primaryStage.setHeight(WINDOW_HEIGHT);

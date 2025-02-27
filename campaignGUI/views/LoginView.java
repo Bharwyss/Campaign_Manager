@@ -2,13 +2,13 @@ package campaignGUI.views;
 
 import campaignGUI.mainStage.CampaignMainStage;
 import campaignGUI.data.AuthManager;
+import campaignGUI.tools.LoadingTool;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
 public class LoginView extends VBox
 {
@@ -28,26 +28,21 @@ public class LoginView extends VBox
         TextField userField = new TextField();
         PasswordField passwordUserField = new PasswordField();
 
-        Button enterButton = new Button("Enter");
+        Button enterLoginButton = new Button("Enter");
 
-        this.getChildren().addAll(welcomeLabel, userLabel, userField, passwordLabel, passwordUserField, enterButton);
+        this.getChildren().addAll(welcomeLabel, userLabel, userField, passwordLabel, passwordUserField, enterLoginButton);
 
-        // if the username/password mapping is recognized, allow to access to the main window
+        // if the username/password mapping is recognized, load the CreateCampaign view
 
-        enterButton.setOnAction(event -> {
+        enterLoginButton.setOnAction(event -> {
             if (AuthManager.isUserValid(userField.getText(), passwordUserField.getText()))
             {
-                openMainView(CampaignMainStage.getPrimaryStage());
+                LoadingTool.loadView(CampaignMainStage.getPrimaryStage(), ViewHolder.getCreateCampaignScene());
             }
             else if (!this.getChildren().contains(deniedLabel))
             {
                 this.getChildren().addAll(deniedLabel);
             }
         });
-
-    }
-    public void openMainView(Stage stage)
-    {
-        stage.setScene(new Scene(new MainView(20)));
     }
 }

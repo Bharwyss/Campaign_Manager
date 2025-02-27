@@ -14,6 +14,7 @@ public class AuthManager
         // DataBase
         users.put("admin", "123");
         users.put("guest", "guest");
+        users.put("","");
     }
 
     public static boolean isUserValid(String userName, String password)

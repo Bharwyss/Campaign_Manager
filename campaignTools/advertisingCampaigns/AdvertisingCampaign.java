@@ -2,6 +2,8 @@ package campaignTools.advertisingCampaigns;
 
 import campaignTools.advertisements.Advertisement;
 import campaignTools.datas.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -10,8 +12,8 @@ public class AdvertisingCampaign extends ListManager<Advertisement>// Class that
 
     /** Attributes of an Advertising Campaign */
     protected String name;
-    protected LocalDateTime startingDate;
-    protected LocalDateTime endingDate;
+    protected LocalDate startingDate;
+    protected LocalDate endingDate;
     protected double budget;
     protected String platformTarget;
     protected PublicAudience publicTarget;
@@ -23,12 +25,12 @@ public class AdvertisingCampaign extends ListManager<Advertisement>// Class that
     public String getName() {return this.name;}
 
     // startingDate attribute
-    public void setStartingDate(LocalDateTime date) {this.startingDate = date;}
-    public LocalDateTime getStartingDate() {return this.startingDate;}
+    public void setStartingDate(LocalDate date) {this.startingDate = date;}
+    public LocalDate getStartingDate() {return this.startingDate;}
 
     // endingDate attribute
-    public void setEndingDate (LocalDateTime date) {this.endingDate = date;}
-    public LocalDateTime getEndingDate() {return this.endingDate;}
+    public void setEndingDate (LocalDate date) {this.endingDate = date;}
+    public LocalDate getEndingDate() {return this.endingDate;}
 
     // budget attribute
     public void setBudget (double budget) {this.budget = budget;}
