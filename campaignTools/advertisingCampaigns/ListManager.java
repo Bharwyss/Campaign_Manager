@@ -52,5 +52,10 @@ public abstract class ListManager<E> // Abstract class that holds the "manager" 
         elementsList.sort(comparatorByAttribute);
         System.out.println("Ordering complete");
     }
+
+    public List<E> getElementsList()
+    {
+        return elementsList;
+    }
 }
 

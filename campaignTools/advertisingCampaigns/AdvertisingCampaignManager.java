@@ -4,7 +4,6 @@ import java.util.Iterator;
 
 public class AdvertisingCampaignManager extends ListManager<AdvertisingCampaign>
         // Class that deals with advertising campaigns
-
         /** Methods of an Advertising Campaign Manager */
 {
     @Override
@@ -32,7 +31,6 @@ public class AdvertisingCampaignManager extends ListManager<AdvertisingCampaign>
         System.out.println("No element found with name: " + elementName);
     }
 
-    // Method to set order by startingDate
     /** Attributes of an Advertising Campaign Manager */
 
     /** Methods of an Advertising Campaign Manager */

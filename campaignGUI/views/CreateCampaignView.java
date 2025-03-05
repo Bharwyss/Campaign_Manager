@@ -5,13 +5,15 @@ import campaignGUI.tools.LoadingTool;
 import campaignGUI.tools.MenuTool;
 import campaignTools.advertisingCampaigns.AdvertisingCampaign;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
-public class CreateCampaignView extends BorderPane {
+import static campaignGUI.views.ViewHolder.getDisplayCurrentCampaignScene;
 
-    public CreateCampaignView(double spacing) {
+public class CreateCampaignView extends BorderPane
+{
+    public CreateCampaignView(double spacing)
+    {
         // Main menu
         MenuBar mainMenu = MenuTool.createMenuBar();
         this.setTop(mainMenu);  // Assure que le MenuBar reste en haut
@@ -44,8 +46,6 @@ public class CreateCampaignView extends BorderPane {
         Button createCampaignButton = new Button("Create");
 
         // Adding event control
-
-
         creationVBox.getChildren().addAll(
                 nameCampaignLabel, nameCampaignText, startDateLabel, startDatePicker,
                 endDateLabel, endDatePicker, budgetLabel, budgetText,
@@ -54,22 +54,26 @@ public class CreateCampaignView extends BorderPane {
         );
 
         createCampaignButton.setOnAction(event ->
-                {
-                    // Put information gathered into a new instance of advertising campaign
-                    AdvertisingCampaign placeHolder = new AdvertisingCampaign();
-                    placeHolder.setName(nameCampaignText.getText());
-                    placeHolder.setStartingDate(startDatePicker.getValue());
-                    placeHolder.setEndingDate(endDatePicker.getValue());
-                    placeHolder.setBudget(Double.parseDouble(budgetText.getText())); //I need to set verification to assure it's a double
-                    placeHolder.setPlatformTarget(platformTargetComboBox.getValue());
+        {
+            // Create a new campaign and add it to the ListView thanks to ListManager method
+            DisplayCurrentCampaignView.getCampaignsListView().addNew(
+                    new AdvertisingCampaign(nameCampaignText.getText(),startDatePicker.getValue(), endDatePicker.getValue(),
+                            Double.parseDouble(budgetText.getText()), platformTargetComboBox.getValue(), publicTargetComboBox.getValue()));
 
-                    // Once gathered and verified, load DisplayCurrentCampaignView and pass it the placeHolder data
-                    // is it possible to load data after the page is loaded?
-                    // if there is the first campaign, create a new scene, else, load the one that already exist)
-                    LoadingTool.loadView(CampaignMainStage.getPrimaryStage(), new Scene(new DisplayCurrentCampaignView()));
+            // Update ListView of the current instantiation with the new list
+            ViewHolder.getDisplayCurrentCampaignView().updateCampaignList(DisplayCurrentCampaignView.getCampaignsListView().getElementsList());
 
-                }
-        );
+            // Load the scene where campaigns are displayed
+            LoadingTool.loadView(CampaignMainStage.getPrimaryStage(), getDisplayCurrentCampaignScene());
+
+            // Reset the TextField after adding the campaign
+            nameCampaignText.clear();  // Clears the name campaign field
+            startDatePicker.setValue(null); // Resets the date picker
+            endDatePicker.setValue(null); // Resets the date picker
+            budgetText.clear(); // Clears the budget field
+            platformTargetComboBox.setValue(null); // Resets the platform combo box
+            publicTargetComboBox.setValue(null); // Resets the public target combo box
+        });
 
         // Centering content
         StackPane centerPane = new StackPane();

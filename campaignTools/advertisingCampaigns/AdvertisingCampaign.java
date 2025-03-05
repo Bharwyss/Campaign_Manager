@@ -9,6 +9,18 @@ import java.util.*;
 
 public class AdvertisingCampaign extends ListManager<Advertisement>// Class that defines what an Advertising Campaign is.
 {
+    /** Constructor */
+    public AdvertisingCampaign() {}
+
+    public AdvertisingCampaign(String name, LocalDate startingDate, LocalDate endingDate, double budget, String platformTarget, String publicTarget)
+    {
+        this.name = name;
+        this.startingDate = startingDate;
+        this.endingDate = endingDate;
+        this.budget = budget;
+        this.platformTarget = platformTarget;
+        this.publicTarget = publicTarget;
+    }
 
     /** Attributes of an Advertising Campaign */
     protected String name;
@@ -16,7 +28,7 @@ public class AdvertisingCampaign extends ListManager<Advertisement>// Class that
     protected LocalDate endingDate;
     protected double budget;
     protected String platformTarget;
-    protected PublicAudience publicTarget;
+    protected String publicTarget;
 
     /** Methods to set or get attributes or an Advertising Campaign */
 
@@ -37,8 +49,8 @@ public class AdvertisingCampaign extends ListManager<Advertisement>// Class that
     public double getBudget() {return this.budget;}
 
     // publicTarget attribute
-    public void setPublicTarget(PublicAudience publicTarget) {this.publicTarget = publicTarget;}
-    public PublicAudience getPublicTarget() {return this.publicTarget;}
+    public void setPublicTarget(String publicTarget) {this.publicTarget = publicTarget;}
+    public String getPublicTarget() {return this.publicTarget;}
 
     // platformTarget attribute
     public void setPlatformTarget(String platformTarget) {this.platformTarget = platformTarget;}

@@ -13,6 +13,11 @@ public class ViewHolder
     private static final Scene createCampaignScene = new Scene(createCampaignView);
     private static final Scene displayCurrentCampaignScene = new Scene(displayCurrentCampaignView);
 
+    public static DisplayCurrentCampaignView getDisplayCurrentCampaignView()
+    {
+        return displayCurrentCampaignView;
+    }
+
     public static Scene getLoginScene()
     {
         return loginScene;
