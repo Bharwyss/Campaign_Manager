@@ -7,10 +7,9 @@ import javafx.scene.control.MenuItem;
 // Class that contain the main menu of the application
 public class MenuTool
 {
-
      public static MenuBar createMenuBar()
      {
-            MenuBar mainMenu = new MenuBar();
+         MenuBar mainMenu = new MenuBar();
 
          // Files menu
          Menu filesMenu = new Menu("Files");

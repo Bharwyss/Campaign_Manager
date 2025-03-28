@@ -2,13 +2,19 @@ package campaignGUI.views;
 
 import javafx.scene.Scene;
 
-public class ViewHolder
+public class ViewHolder // Class that holds the views and scenes used for the application
 {
     private static final LoginView loginView = new LoginView(20);
     private static final CreateCampaignView createCampaignView = new CreateCampaignView(20);
     private static final DisplayCurrentCampaignView displayCurrentCampaignView = new DisplayCurrentCampaignView();
 
-    // Encapulsating scenes
+    // Encapsulating view
+    public static CreateCampaignView getCreateCampaignView()
+    {
+        return createCampaignView;
+    }
+
+    // Encapsulating scenes
     private static final Scene loginScene = new Scene(loginView);
     private static final Scene createCampaignScene = new Scene(createCampaignView);
     private static final Scene displayCurrentCampaignScene = new Scene(displayCurrentCampaignView);

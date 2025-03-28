@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 // Class that holds the method to load different views and the method to do the same but with an advertising Campaign
-
 public class LoadingTool
 {
     public static void loadView(Stage stage, Scene scene)

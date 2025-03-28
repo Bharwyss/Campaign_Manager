@@ -1,9 +1,7 @@
 package campaignGUI.mainStage;
 
-import campaignGUI.views.LoginView;
 import campaignGUI.views.ViewHolder;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class CampaignMainStage extends Application

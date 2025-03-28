@@ -81,6 +81,7 @@ public class AdvertisingCampaign extends ListManager<Advertisement>// Class that
         System.out.println("No element found with name: " + elementName);
     }
 
+
     public double calculateROI() // Calculate return of investment
     {
         return 10;

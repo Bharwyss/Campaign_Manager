@@ -4,5 +4,5 @@ import javafx.scene.layout.VBox;
 
 public class HomeView extends VBox
 {
-
+ // under construction
 }

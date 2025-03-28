@@ -6,10 +6,9 @@ import javafx.event.EventHandler;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AuthManager
+public class AuthManager // Class to hold data for accessing the application
 {
     private static final Map<String, String> users = new HashMap<>();
-
     static {
         // DataBase
         users.put("admin", "123");
