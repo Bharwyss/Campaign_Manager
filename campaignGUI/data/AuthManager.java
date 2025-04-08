@@ -11,6 +11,8 @@ public class AuthManager // Class to hold data for accessing the application
     private static final Map<String, String> users = new HashMap<>();
     static {
         // DataBase
+
+        // Next step of the project is to do encryption to hide user identification
         users.put("admin", "123");
         users.put("guest", "guest");
         users.put("","");
