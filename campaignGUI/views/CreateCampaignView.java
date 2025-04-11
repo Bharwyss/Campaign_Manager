@@ -51,19 +51,19 @@ public class CreateCampaignView extends BorderPane
         this.publicTargetComboBox = new ComboBox<>();
         publicTargetComboBox.getItems().addAll("Option A", "Option B", "Option C");
         Button createCampaignButton = new Button("Create");
+        Button cancelCreation = new Button("Cancel");
 
         // Adding event control
         creationVBox.getChildren().addAll(
                 nameCampaignLabel, nameCampaignText, startDateLabel, startDatePicker,
                 endDateLabel, endDatePicker, budgetLabel, budgetText,
                 platformTargetLabel, platformTargetComboBox,
-                publicTargetLabel, publicTargetComboBox, createCampaignButton
+                publicTargetLabel, publicTargetComboBox, createCampaignButton, cancelCreation
         );
 
-        createCampaignButton.setOnAction(event ->
-        {
-            createCampaign();
-        });
+        createCampaignButton.setOnAction(event -> {createCampaign();});
+
+        cancelCreation.setOnAction(event -> {cancelCreation();});
 
         // Centering content
         StackPane centerPane = new StackPane();
@@ -100,6 +100,20 @@ public class CreateCampaignView extends BorderPane
         LoadingTool.loadView(CampaignMainStage.getPrimaryStage(), getDisplayCurrentCampaignScene());
 
         // Reset the TextField after adding the campaign
+        clearTextFields();
+    }
+
+    private void cancelCreation()
+    {
+        // Load the DisplayCurrentCampaignView
+        LoadingTool.loadView(CampaignMainStage.getPrimaryStage(), getDisplayCurrentCampaignScene());
+
+        // Reset the TextField for next use
+        clearTextFields();
+    }
+
+    private void clearTextFields()
+    {
         nameCampaignText.clear();  // Clears the name campaign field
         startDatePicker.setValue(null); // Resets the date picker
         endDatePicker.setValue(null); // Resets the date picker
